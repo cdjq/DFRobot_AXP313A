@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For DFRobot_AXP313A
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DFRobot_AXP313A	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################	
+
+begin	KEYWORD2
+enablePower	KEYWORD2
+disablePower	KEYWORD2
+setShutdownKeyLevelTime	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+eTime6s	LITERAL1
+eTime10s	LITERAL1
+
