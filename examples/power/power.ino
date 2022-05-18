@@ -20,7 +20,7 @@ void setup(){
   }
   Serial.println("init succeed");
   axp.setShutdownKeyLevelTime(axp.eTime10s);//设置关机按键电平时间
-  axp.enablePower(1.5,1.0);//设置摄像头供电
+  axp.enableCameraPower(axp.eOV2640);//设置摄像头供电
   delay(1000);
   axp.disablePower();//关闭摄像头供电
 }

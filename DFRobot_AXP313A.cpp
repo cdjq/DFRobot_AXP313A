@@ -30,21 +30,30 @@ uint8_t DFRobot_AXP313A::begin(void)
 
 }
 
-void DFRobot_AXP313A::enablePower(float DVDD, float AVDDorDOVDD)
+void DFRobot_AXP313A::enableCameraPower(eCamera_t camera)
+{
+  if(camera == eCamera_t::eOV2640){
+    setCameraPower(1.2,2.8);
+  }else{
+    setCameraPower(1.8,3.3);
+  }
+}
+
+void DFRobot_AXP313A::setCameraPower(float DVDD, float AVDDorDOVDD)
 {
 
   uint8_t ALDOData = 0;
   uint8_t DLDOData = 0;
   uint8_t state = 0x19;
-  if(DVDD < 0.5 || AVDDandDOVDD < 0.5){
+  if(DVDD < 0.5 || AVDDorDOVDD < 0.5){
     ALDOData = 0;
     DLDOData = 0;
-  }else if(DVDD > 3.5 || AVDDandDOVDD > 3.5){
+  }else if(DVDD > 3.5 || AVDDorDOVDD > 3.5){
     ALDOData = 31;
     DLDOData = 31;
   }else{
     ALDOData = (DVDD-0.5) * 10;
-    DLDOData = (AVDDandDOVDD-0.5) *10;
+    DLDOData = (AVDDorDOVDD-0.5) *10;
   }
   writeReg(0x10,&state,1);
   delay(10);
