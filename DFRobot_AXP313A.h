@@ -27,11 +27,11 @@ public:
   }eShutdownKeyLevelTime_t;
   /**
    * @fn enum
-   * @brief 选择关机电平时间
+   * @brief 选择不同摄像头
    */
   typedef enum{
-    eOV2640,//1.2,2.8
-    e0V7725//1.8,3.3
+    eOV2640,
+    e0V7725
   }eCamera_t;
   /**
    * @fn DFRobot_AXP313A
