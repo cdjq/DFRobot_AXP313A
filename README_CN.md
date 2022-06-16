@@ -1,96 +1,78 @@
 # DFRobot_AXP313A
 
-* [English Version](./README.md)
+* [英文板](./README.md)
 
 这是ESP32-S3主板上摄像头电源管理的库。
 
-## 产品链接（（[www.dfrobot.com](www.dfrobot.com)）
+
+## Product Link（[www.dfrobot.com](www.dfrobot.com)）
     SKU: 无
 
-## 目录
-  - [概述](#概述)
-  - [库安装](#库安装)
-  - [方法](#方法)
-  - [兼容性](#兼容性)
-  - [历史](#历史)
-  - [创作者](#创作者)
+## Table of Contents
+  - [Summary](#summary)
+  - [Installation](#installation)
+  - [Methods](#methods)
+  - [Compatibility](#compatibility)
+  - [History](#history)
+  - [Credits](#credits)
 
-## 概述
+## Summary
 这是ESP32-S3主板上摄像头电源管理的库。
 
-## 库安装
+## Installation
 
-这里有2种安装方法：
-1. 使用此库前，请首先下载库文件，将其粘贴到\Arduino\libraries目录中，然后打开examples文件夹并在该文件夹中运行演示。
-2. 直接在Arduino软件库管理中搜索下载 DFRobot_AXP313A 库
+There two methods: 
+1. To use this library, first download the library file, paste it into the \Arduino\libraries directory, then open the examples folder and run the demo in the folder.
+2. Search the DFRobot_AXP313A library from the Arduino Software Library Manager and download it.
 
-## 方法
+## Methods
 
 ```C++
   /**
    * @fn begin
-   * @brief 初始化该模块。
+   * @brief 初始化传感器
+   * @return 返回初始化状态
+   * @retval 0 初始化成功
+   * @retval 1 初始化失败
    */
   uint8_t begin(void);
 
-	/**
-   * @fn setDACOutRange
-   * @brief 设置DAC输出范围
-   * @param range DAC输出范围
+  /**
+   * @fn enablePower
+   * @brief 使能电源输出
+   * @param DVDD DVDD电压设置,默认电压为1.5V
+   * @param AVDDandDOVDD AVDD和DOVDD电压设置，默认电压为2.8V
    * @return NONE
    */
-  void setDACOutRange(eOutPutRange range);
-    
+  void enablePower(float DVDD = 1.5,float AVDDorDOVDD = 2.8);
+
   /**
-   * @fn setDACOutVoltage
-   * @brief 设置不同通道输出DAC值
-   * @param data 需要输出的电压值
-   * @param channel 输出通道 0:通道0;1:通道1;2:全部通道
+   * @fn disablePower
+   * @brief 关闭总电源
    * @return NONE
    */
-  void setDACOutVoltage(uint16_t data,uint8_t channel);
+  void disablePower(void);
+
   /**
-   * @brief 将设置的电压保存在芯片内部
+   * @fn setShutdownKeyLevelTime
+   * @brief 设置关机按键电平时间
+   * @param offLevelTime 关机按键电平时间
+   * @return NONE
    */
-	void store(void);
-  /**
-   * @brief 调用函数输出正弦波
-   * @param amp 设点正弦波幅度Vp
-   * @param freq 设置正弦波频率f
-   * @param offset 设置正弦波直流偏置Voffset
-   * @param channel 输出通道 0:通道0;1:通道1;2:全部通道
-   */
-	void outputSin(uint16_t amp, uint16_t freq, uint16_t offset,uint8_t channel);
-  /**
-   * @brief 调用函数输出三角波
-   * @param amp 设点正弦波幅度Vp
-   * @param freq 设置正弦波频率f
-   * @param offset 设置正弦波直流偏置Voffset
-   * @param dutyCycle 设定三角（锯齿）波占空比
-   * @param channel 输出通道 0:通道0;1:通道1;2:全部通道
-   */
-	void outputTriangle(uint16_t amp, uint16_t freq, uint16_t offset, int8_t dutyCycle, uint8_t channel);
-  /**
-   * @brief 调用函数输出方波
-   * @param amp 设点正弦波幅度Vp
-   * @param freq 设置正弦波频率f
-   * @param offset 设置正弦波直流偏置Voffset
-   * @param dutyCycle 设定方波波占空比
-   * @param channel 输出通道 0:通道0;1:通道1;2:全部通道
-   */
-	void outputSquare(uint16_t amp, uint16_t freq, uint16_t offset, int8_t dutyCycle, uint8_t channel);
+  void setShutdownKeyLevelTime(eShutdownKeyLevelTime_t offLevelTime);
 ```
-## 兼容性
+## Compatibility
 
 MCU                |  Work Well    | Work Wrong   | Untested    | Remarks
 ------------------ | :----------: | :----------: | :---------: | -----
-ESP32-S3            |      √       |              |             | 
+ESP32-s3           |      √       |              |             | 
 
-## 历史
 
-- 2022/05/17 - 1.0.0 版本
+## History
 
-## 创作者
+- 2022/05/17 - Version 1.0.0 released.
+
+## Credits
 
 Written by tangjie(jie.tang@dfrobot.com), 2022. (Welcome to our [website](https://www.dfrobot.com/))
 
