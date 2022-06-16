@@ -59,7 +59,7 @@ public:
 
   /**
    * @fn disablePower
-   * @brief 关闭摄像头电源
+   * @brief 关闭总电源
    * @return NONE
    */
   void disablePower(void);
