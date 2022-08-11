@@ -1,31 +1,30 @@
 # DFRobot_AXP313A
 
-* [英文板](./README.md)
+* [English Version](./README.md)
 
 这是ESP32-S3主板上摄像头电源管理的库。
 
-
-## Product Link（[www.dfrobot.com](www.dfrobot.com)）
+## 产品链接（（[www.dfrobot.com](www.dfrobot.com)）
     SKU: 无
 
-## Table of Contents
-  - [Summary](#summary)
-  - [Installation](#installation)
-  - [Methods](#methods)
-  - [Compatibility](#compatibility)
-  - [History](#history)
-  - [Credits](#credits)
+## 目录
+  - [概述](#概述)
+  - [库安装](#库安装)
+  - [方法](#方法)
+  - [兼容性](#兼容性)
+  - [历史](#历史)
+  - [创作者](#创作者)
 
-## Summary
+## 概述
 这是ESP32-S3主板上摄像头电源管理的库。
 
-## Installation
+## 库安装
 
-There two methods: 
-1. To use this library, first download the library file, paste it into the \Arduino\libraries directory, then open the examples folder and run the demo in the folder.
-2. Search the DFRobot_AXP313A library from the Arduino Software Library Manager and download it.
+这里有2种安装方法：
+1. 使用此库前，请首先下载库文件，将其粘贴到\Arduino\libraries目录中，然后打开examples文件夹并在该文件夹中运行演示。
+2. 直接在Arduino软件库管理中搜索下载 DFRobot_AXP313A 库
 
-## Methods
+## 方法
 
 ```C++
   /**
@@ -48,7 +47,7 @@ There two methods:
 
   /**
    * @fn disablePower
-   * @brief 关闭总电源
+   * @brief 关闭摄像头电源
    * @return NONE
    */
   void disablePower(void);
@@ -61,18 +60,17 @@ There two methods:
    */
   void setShutdownKeyLevelTime(eShutdownKeyLevelTime_t offLevelTime);
 ```
-## Compatibility
+## 兼容性
 
 MCU                |  Work Well    | Work Wrong   | Untested    | Remarks
 ------------------ | :----------: | :----------: | :---------: | -----
-ESP32-s3           |      √       |              |             | 
+ESP32-S3            |      √       |              |             | 
 
+## 历史
 
-## History
+- 2022/05/17 - 1.0.0 版本
 
-- 2022/05/17 - Version 1.0.0 released.
-
-## Credits
+## 创作者
 
 Written by tangjie(jie.tang@dfrobot.com), 2022. (Welcome to our [website](https://www.dfrobot.com/))
 

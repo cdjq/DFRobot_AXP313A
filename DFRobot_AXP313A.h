@@ -18,21 +18,23 @@
 class DFRobot_AXP313A{
 public:
   /**
-   * @fn enum
+   * @enum eShutdownKeyLevelTime_t
    * @brief 选择关机电平时间
    */
   typedef enum{
     eTime6s,
     eTime10s
   }eShutdownKeyLevelTime_t;
+
   /**
-   * @fn enum
-   * @brief 选择不同摄像头
+   * @enum eCamera_t
+   * @brief 选择关机电平时间
    */
   typedef enum{
-    eOV2640,
-    e0V7725
+    eOV2640,//1.2,2.8
+    e0V7725//1.8,3.3
   }eCamera_t;
+
   /**
    * @fn DFRobot_AXP313A
    * @brief DFRobot_AXP313A constructor
@@ -49,6 +51,7 @@ public:
    * @retval 1 初始化失败
    */
   uint8_t begin(void);
+
   /**
    * @fn enableCameraPower
    * @brief 使能摄像头电源
@@ -59,7 +62,7 @@ public:
 
   /**
    * @fn disablePower
-   * @brief 关闭总电源
+   * @brief 关闭摄像头电源
    * @return NONE
    */
   void disablePower(void);
@@ -93,13 +96,6 @@ private:
 
   TwoWire *_pWire;
 	uint8_t _addr;
-
-
-
-
-
-
-
 };
 
 
