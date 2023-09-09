@@ -1,12 +1,12 @@
 '''
 DFRobot FireBeetle_2_Board_ESP32_S3 摄像头演示程序
 
-参考:
+使用指导：请务必参考以下网址的使用指导，否则可能会出现各种问题
+    https://mc.dfrobot.com.cn/thread-316903-1-1.html
+
+参考资料:
     https://learn.adafruit.com/adafruit-ov5640-camera-breakout/jpeg-capture-demo
     https://wiki.dfrobot.com.cn/_SKU_DFR0975_FireBeetle_2_Board_ESP32_S3_Advanced_Tutorial#target_12
-
-说明：
-    直接存储从摄像头获取的图片到板载FLash时，应参考如下文章，设置CircuitPython可写内置存储：
     https://learn.adafruit.com/circuitpython-essentials/circuitpython-storage
 '''
 
