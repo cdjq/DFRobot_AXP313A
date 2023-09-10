@@ -13,6 +13,7 @@ DFRobot FireBeetle_2_Board_ESP32_S3 摄像头演示程序
 import board
 import busio
 import time
+import espidf
 import espcamera
 import AXP313A
 
@@ -56,6 +57,13 @@ CAMERA_XCLK=board.GPIO45
 
 # 延时函数定义 delay function
 delay = lambda n: time.sleep(n/1000)
+
+print("check reserved psram")
+reserved_psram = espidf.get_reserved_psram()
+if reserved_psram<1048576:
+    print("Please config settings.toml: CIRCUITPY_RESERVED_PSRAM=1048576")
+    print("  and then reset the board")
+    raise Exception("MemoryError:")
 
 print("i2c init")
 i2c = busio.I2C(scl=board.GPIO2, sda=board.GPIO1)
